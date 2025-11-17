@@ -13,9 +13,9 @@ Maak een folder met de volgende structuur
 todo-app/
    ├── backend/
    │   ├── php/
-   │   │   ├── dockerfile
    │   │   ├── index.php
    │   │   └── api/
+   │   ├── dockerfile
    │   └── docker-compose.yml
    │   
    └── README.md
@@ -32,7 +32,7 @@ version: '3.8'
 
 services:
   php:
-    build: ./php
+    build: .
     container_name: php_todo_app
     ports:
       - "8080:80"
