@@ -33,14 +33,12 @@ export async function addTodo() {
     const response = await fetch('http://localhost:8080/api/addTodo.php');
     if(response.ok != true){
         throw new Error("Response status: " + response.status);
-    }
-    const data = await response.text();
-    if (data === "Success!") {
-        console.log("Todo toegevoegd!");
+    } else{
+        const data = await response.text();
         // TODO: refresh todo list
-    } else {
-        console.log("Fout bij toevoegen:", data);
     }
+    
+
 }
 ```
 
@@ -95,7 +93,7 @@ const button = document.querySelector("#todo-add");
 button.addEventListener("click", ()=>addTodo(todoList));
 ```
 
-Voeg de volgende regel uit wanneer je de **todo** ***succesvol*** hebt toegevoegd aan de database.
+Voeg de volgende regel uit wanneer je de **todo** ***succesvol*** hebt toegevoegd aan de database. Doe dit in de **TodoList** class.
 ```js
     todolist.getTodos();
 ```
