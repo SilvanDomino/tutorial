@@ -32,4 +32,34 @@ Als het goed is heb je nu alle kennis en ervaring die je nodig hebt voor de PATC
 * Je weet hoe je de errors kan afvangen.
 * Je weet hoe je de lijst kan refreshen.
 
-Je mag nu zelf uitzoeken hoe je de Todo kan updaten.
+Je mag nu zelf uitzoeken hoe je de Todo kan updaten/aanpassen.
+
+### De TodoList refreshen
+Wanneer we een Todo hebben aangepast, willen we dit ook gelijk geupdate zien op de website. Dat kunnen we alleen als de Todo bij de *todolist* kan komen.
+
+Daarvoor moeten we enkele regels code aanpassen.
+
+In TodoList:
+`new Todo(data[i], this.listEl);` wordt `new Todo(data[i], this.listEl, this);`
+We geven hier een referentie naar de TodoList mee aan elke Todo. Elke Todo weet dan precies in welke todolist deze zit.
+
+In Todo:
+```js
+constructor(data, root){
+        this.data = data;
+        this.root = root;
+        this.render();
+    }
+```
+wordt
+```js
+constructor(data, root, todoList){
+        this.data = data;
+        this.root = root;
+        this.todoList = todoList;
+        this.render();
+    }
+```
+
+#### Refreshen
+Nu kunnen we in de Todo de todolist refreshen met `this.todoList.getTodos()`. 
