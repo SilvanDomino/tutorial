@@ -22,7 +22,7 @@ Frontend: Refresh todo list
 ```
 
 ## Bestand
-Maak een bestand naast *todos.php* genaamd `addTodo.php`. In dit bestand gaan we dit hoofdstuk werken.
+Maak een bestand naast *todos.php* genaamd `editTodo.php`. In dit bestand gaan we dit hoofdstuk werken.
 
 ### 1. Headers en Database connectie
 Voeg de headers toe. (Zie vorige les)
@@ -35,7 +35,7 @@ Check ipv de *text* de **id**. Die gaan we gebruiken.
 ### 3. Database UPDATE met Prepared Statement
 De SQL statement is in principe:
 ```php
-$stmt = $db->prepare("UPDATE todos SET status=? WHERE id = ?");
+$stmt = $mysqli->prepare("UPDATE todos SET status=? WHERE id = ?");
 ```
 
 We passen alleen maar de status aan van een todo. Welke todo we aanpassen selecteren we op basis van de **id**.
